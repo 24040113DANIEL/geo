@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Geolocalización | Mapa y Tipos de Ubicación</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Leaflet (Mapa) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+</head>
+<body>
+
+  <header class="topbar">
+    <h1>Programar aplicaciones con API's de Geolocalización</h1>
+    <p>Mapa interactivo + tipos de ubicación + información requerida</p>
+  </header>
+
+  <main class="container">
+
+    <!-- Panel de opciones / teoría -->
+    <section class="card">
+      <h2>Página de inicio: opciones requeridas</h2>
+
+      <details open>
+        <summary>¿Qué es geolocalización?</summary>
+        <p>
+          La geolocalización es la tecnología que permite obtener la ubicación de un dispositivo u objeto
+          mediante coordenadas (latitud y longitud), usando GPS, Wi-Fi, redes móviles o IP.
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Cuáles son los tipos de geolocalización más utilizados?</summary>
+        <ul>
+          <li><b>GPS:</b> Alta precisión en exteriores.</li>
+          <li><b>Wi-Fi:</b> Buena precisión en interiores/zonas urbanas.</li>
+          <li><b>Red móvil (torres):</b> Precisión media, útil cuando no hay GPS.</li>
+          <li><b>IP:</b> Aproximada, usada en servicios web.</li>
+          <li><b>Sensores (Bluetooth/beacons):</b> Ubicación en espacios cerrados con alta precisión.</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>Mencione 5 aplicaciones que utilicen geolocalización</summary>
+        <ul>
+          <li>Google Maps</li>
+          <li>Uber / Didi</li>
+          <li>Rappi</li>
+          <li>WhatsApp (Compartir ubicación)</li>
+          <li>Pokémon GO</li>
+        </ul>
+      </details>
+
+      <details>
+        <summary>¿Qué es una API?</summary>
+        <p>
+          Una API (Interfaz de Programación de Aplicaciones) es un conjunto de reglas y endpoints
+          que permiten que una aplicación se comunique con un servicio externo para obtener datos o funcionalidades.
+        </p>
+      </details>
+
+      <details>
+        <summary>¿Cómo se genera una clave API?</summary>
+        <ol>
+          <li>Crear/ingresar a una cuenta en el proveedor (Google, Mapbox, etc.).</li>
+          <li>Crear un proyecto.</li>
+          <li>Activar el servicio (Maps, Geocoding, etc.).</li>
+          <li>Generar la clave (API Key).</li>
+          <li>Restringirla por dominio/HTTP referrers para seguridad.</li>
+        </ol>
+        <p class="note">
+          Nota: En este proyecto principal usamos OpenStreetMap con Leaflet, por lo que <b>no necesitas API Key</b>.
+        </p>
+      </details>
+    </section>
+
+    <!-- Tipos de Ubicación + controles -->
+    <section class="card">
+      <h2>Mostrar los diferentes tipos de Ubicación</h2>
+      <p>Selecciona un tipo de ubicación para centrar el mapa en un ejemplo real.</p>
+
+      <div class="controls">
+        <label for="tipoUbicacion">Tipo de ubicación:</label>
+        <select id="tipoUbicacion">
+          <option value="coordenadas">📍 Coordenadas (Lat/Lng)</option>
+          <option value="direccion">🏠 Dirección</option>
+          <option value="ciudad">🏙️ Ciudad/Región</option>
+          <option value="punto-interes">⭐ Punto de interés</option>
+          <option value="usuario">🧑 Mi ubicación (GPS del navegador)</option>
+        </select>
+
+        <button id="btnIr">Ir</button>
+      </div>
+
+      <div class="grid">
+        <div>
+          <h3>Datos de ubicación</h3>
+          <pre id="infoUbicacion">Selecciona un tipo y presiona "Ir".</pre>
+        </div>
+
+        <div>
+          <h3>Mapa</h3>
+          <div id="map"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <small>Proyecto académico: Geolocalización + Mapa interactivo (Leaflet + OpenStreetMap)</small>
+  </footer>
+
+  <!-- Leaflet (Mapa) -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
